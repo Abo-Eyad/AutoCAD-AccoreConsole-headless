@@ -9,6 +9,10 @@ how to execute, verify, and debug AutoCAD / Civil 3D plugins in headless mode
 with `accoreconsole.exe` — and, crucially, how to produce *evidence* that a
 headless run actually passed instead of merely asserting it did.
 
+## Automated installations
+
+[![skills.sh](https://skills.sh/b/Abo-Eyad/AutoCAD-AccoreConsole-headless)](https://skills.sh/Abo-Eyad/AutoCAD-AccoreConsole-headless)
+
 ## Why this exists
 
 Running plugins headlessly through `accoreconsole.exe` for CI and batch work is
