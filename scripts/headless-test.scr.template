@@ -1,0 +1,43 @@
+;; =====================================================================
+;; HEADLESS TEST SCRIPT TEMPLATE  (accoreconsole.exe)
+;; ---------------------------------------------------------------------
+;; Copy this file per test. Replace the CAPS placeholders. Keep the
+;; crash marker as the LAST line so the harness can prove completion.
+;;
+;; Run with:
+;;   .\run-headless.ps1 -ScriptPath .\thistest.scr -Marker "AFTER-MARKER"
+;; =====================================================================
+
+;; --- 1. Allow loading the plugin assembly --------------------------------
+;; The GUI ApplicationPlugins autoloader does NOT run headlessly, so you
+;; MUST load the assembly explicitly. SECURELOAD blocks NETLOAD from
+;; untrusted locations by default. Either trust the folder (preferred) or,
+;; for a throwaway test sandbox only, set SECURELOAD to 0.
+;;
+;; Preferred (trust the folder, keep security on):
+;;   (setvar "TRUSTEDPATHS" "C:\\PATH\\TO\\PLUGIN\\FOLDER\\...")
+;; Test-sandbox shortcut (insecure - do not ship):
+(setvar "SECURELOAD" 0)
+
+;; --- 2. Load the plugin --------------------------------------------------
+;; Use a full, escaped path. Forward slashes also work and avoid escaping.
+NETLOAD "C:/PATH/TO/YourPlugin.dll"
+
+;; --- 3. Exercise the command(s) under test -------------------------------
+;; Replace with the registered command name(s). One per line.
+;; Add any required command input on the lines that follow each command.
+YOUR_COMMAND_HERE
+
+;; --- 4. (Optional) prove a side effect happened --------------------------
+;; e.g. echo a value, list entities, or report a file you just wrote so the
+;; captured log carries real evidence rather than silence.
+;; (princ (strcat "\nWROTE: " "C:/out/result.json"))
+
+;; --- 5. Crash marker — MUST be the final emitted output ------------------
+;; If the harness does not see this string, the engine crashed mid-run.
+;; Keep it identical to the -Marker argument passed to run-headless.ps1.
+(princ "\nAFTER-MARKER\n")
+
+;; Exit cleanly.
+QUIT
+Y
