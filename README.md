@@ -9,9 +9,14 @@ how to execute, verify, and debug AutoCAD / Civil 3D plugins in headless mode
 with `accoreconsole.exe` — and, crucially, how to produce *evidence* that a
 headless run actually passed instead of merely asserting it did.
 
-## Automated installations
+## Automated installation
 
-[![skills.sh](https://skills.sh/b/Abo-Eyad/AutoCAD-AccoreConsole-headless)](https://skills.sh/Abo-Eyad/AutoCAD-AccoreConsole-headless)
+Use the [skills](https://skills.sh) utility to install and manage skills globally or per project:
+
+```bash
+# Install this skill globally
+npx skills add Abo-Eyad/AutoCAD-AccoreConsole-headless --global
+```
 
 ## Why this exists
 
